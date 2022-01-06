@@ -27,11 +27,11 @@ User.create!(name: "Christian Wirth",
           activated_at: Time.zone.now)
 end
 
-# Generate microposts for a subset of users.
+# Generate Contributions for a subset of users.
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(word_count: 5)
-  users.each { |user| user.microposts.create!(content: content) }
+  users.each { |user| user.contributions.create!(content: content) }
 end
 
 # Create following relationships.

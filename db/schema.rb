@@ -48,21 +48,21 @@ ActiveRecord::Schema.define(version: 2022_01_06_153845) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "contributions", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "created_at"], name: "index_contributions_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_contributions_on_user_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.string "lat"
     t.string "lon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "microposts", force: :cascade do |t|
-    t.text "content"
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -93,5 +93,5 @@ ActiveRecord::Schema.define(version: 2022_01_06_153845) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "microposts", "users"
+  add_foreign_key "contributions", "users"
 end

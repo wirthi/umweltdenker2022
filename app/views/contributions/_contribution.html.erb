@@ -1,0 +1,14 @@
+<li id="contribution-<%= contribution.id %>">
+  <%= link_to gravatar_for(contribution.user, size: 50), contribution.user %>
+  <span class="user"><%= link_to contribution.user.name, contribution.user %></span>
+  <span class="content">
+    <%= contribution.content %>
+    <%= image_tag contribution.image if contribution.image.attached? %>
+  </span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(contribution.created_at) %> ago.
+    <% if current_user?(contribution.user) %>
+      <%= link_to "delete", contribution, method: :delete, data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>
