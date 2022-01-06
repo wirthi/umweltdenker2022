@@ -51,3 +51,22 @@ Group.create!(name: "Langholzfeld",
 Group.create!(name: "Leonding",
   lat: "1234",
   lon: "4567")
+
+Category.create!(title: "Abfall",
+  unit: "Kilogramm",
+  unit_short: "kg")
+Category.create!(title: "Energie",
+  unit: "Kilowattstunden",
+  unit_short: "kWh")
+Category.create!(title: "Ernährung",
+  unit: "Kilogramm Kohlendioxid",
+  unit_short: "kg CO2")
+Category.create!(title: "Verkehr",
+  unit: "Kilometer",
+  unit_short: "km")
+Category.create!(title: "Wasser",
+  unit: "Liter",
+  unit_short: "l")
+  
+  
+      
