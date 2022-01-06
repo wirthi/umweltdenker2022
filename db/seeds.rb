@@ -41,3 +41,13 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+Group.create!(name: "Landesverband Oberösterreich",
+  lat: "1234",
+  lon: "4567")
+Group.create!(name: "Langholzfeld",
+  lat: "1234",
+  lon: "4567")
+Group.create!(name: "Leonding",
+  lat: "1234",
+  lon: "4567")
