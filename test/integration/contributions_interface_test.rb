@@ -8,13 +8,13 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
   test "contribution interface" do
     log_in_as(@user)
     get root_path
-    assert_select 'div.pagination'
+    ## assert_select 'div.pagination' # not paginating currentls
     # Invalid submission
     assert_no_difference 'Contribution.count' do
       post contributions_path, params: { contribution: { content: "" } }
     end
     assert_select 'div#error_explanation'
-    assert_select 'a[href=?]', '/?page=2' # Correct pagination link
+    ## assert_select 'a[href=?]', '/?page=2' # Correct pagination link (not any longer!)
     # Valid submission
     content = "This contribution really ties the room together"
     assert_difference 'Contribution.count', 1 do

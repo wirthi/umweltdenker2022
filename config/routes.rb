@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  
+  
+  # Users and sessions
   resources :users do
     member do
       get :following, :followers
@@ -17,9 +20,9 @@ Rails.application.routes.draw do
   end
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  
+  # Umweltdenker Application
   resources :contributions, only: [:create, :destroy]
-  resources :relationships, only: [:create, :destroy]
-
   resources :groups, only: [:index]
   resources :categories, only: [:index]
 end

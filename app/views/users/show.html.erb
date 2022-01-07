@@ -13,7 +13,6 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
     <% if @user.contributions.any? %>
       <h3>Contributions (<%= @user.contributions.count %>)</h3>
       <ol class="contributions">
