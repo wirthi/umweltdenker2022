@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   
   # Umweltdenker Application
-  resources :contributions, only: [:create, :destroy]
+  resources :contributions, only: [:create, :destroy, :index]
   resources :groups, only: [:index]
   resources :categories, only: [:index]
 end

@@ -1,0 +1,17 @@
+<% provide(:title, 'Alle Beiträge') %>
+<h1>
+  Alle Beiträge
+  <%= @category.title if @category %>
+</h1>
+
+<%= will_paginate %>
+
+<% if @contributions.count > 0 %>
+  <ul class="users">
+    <%= render @contributions %>
+  </ul>
+<% else %>
+  <p>Noch keine Beiträge in der Kategorie <%= @category.title %>.</p>
+<% end %>
+
+<%= will_paginate %>

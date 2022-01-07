@@ -27,13 +27,6 @@ User.create!(name: "Christian Wirth",
           activated_at: Time.zone.now)
 end
 
-# Generate Contributions for a subset of users.
-users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(word_count: 5)
-  users.each { |user| user.contributions.create!(content: content) }
-end
-
 Group.create!(name: "Landesverband Oberösterreich",
   lat: "1234",
   lon: "4567")
@@ -44,7 +37,7 @@ Group.create!(name: "Leonding",
   lat: "1234",
   lon: "4567")
 
-Category.create!(title: "Abfall",
+abfall = Category.create!(title: "Abfall",
   unit: "Kilogramm",
   unit_short: "kg")
 Category.create!(title: "Energie",
@@ -59,6 +52,13 @@ Category.create!(title: "Verkehr",
 Category.create!(title: "Wasser",
   unit: "Liter",
   unit_short: "l")
+
+# Generate Contributions for a subset of users.
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(word_count: 5)
+  users.each { |user| user.contributions.create!(content: content, category: abfall) }
+end
   
   
       

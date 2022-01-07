@@ -23,10 +23,23 @@ class ContributionsController < ApplicationController
     end
   end
 
+  def index
+    if params[:category]
+      @contributions = Contribution.where(:category => params[:category]).paginate(page: params[:page])
+      @category = Category.find_by(id: params[:category])
+    else
+      @contributions = Contribution.paginate(page: params[:page])
+    end
+  end
+
+  def show
+    @contribution = Contribution.find_by(id: params[:id])
+  end
+
   private
 
     def contribution_params
-      params.require(:contribution).permit(:content, :image)
+      params.require(:contribution).permit(:content, :image, :category)
     end
 
     def correct_user

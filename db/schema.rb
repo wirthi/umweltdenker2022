@@ -51,8 +51,10 @@ ActiveRecord::Schema.define(version: 2022_01_06_153845) do
   create_table "contributions", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_contributions_on_category_id"
     t.index ["user_id", "created_at"], name: "index_contributions_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_contributions_on_user_id"
   end
@@ -83,5 +85,6 @@ ActiveRecord::Schema.define(version: 2022_01_06_153845) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "contributions", "categories"
   add_foreign_key "contributions", "users"
 end
