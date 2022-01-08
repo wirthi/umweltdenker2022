@@ -3,6 +3,7 @@ require "test_helper"
 class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:michael)
+    @energie = categories(:energie)
   end
   
   test "contribution interface" do
@@ -18,7 +19,7 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
     # Valid submission
     content = "This contribution really ties the room together"
     assert_difference 'Contribution.count', 1 do
-      post contributions_path, params: { contribution: { content: content } }
+      post contributions_path, params: { contribution: { content: content, category: @energie } }
     end
     assert_redirected_to root_url
     follow_redirect!

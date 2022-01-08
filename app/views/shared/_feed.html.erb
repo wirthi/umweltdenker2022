@@ -1,4 +1,4 @@
-<% if @user.contributions.a  before_action :setup_datany? %>
+<% if @user.contributions.any? %>
   <ol class="contributions">
     <%= render @user.contributions %>
   </ol>

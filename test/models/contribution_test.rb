@@ -3,7 +3,8 @@ require "test_helper"
 class ContributionTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
-    @contribution = @user.contributions.build(content: "Lorem ipsum")
+    energie = categories(:energie)
+    @contribution = @user.contributions.build(content: "Lorem ipsum", category: energie)
   end
 
   test "should be valid" do
@@ -22,6 +23,11 @@ class ContributionTest < ActiveSupport::TestCase
 
   test "content should be at most 140 characters" do
     @contribution.content = "a" * 141
+    assert_not @contribution.valid?
+  end
+
+  test "category id should be present" do
+    @contribution.category_id = nil
     assert_not @contribution.valid?
   end
 

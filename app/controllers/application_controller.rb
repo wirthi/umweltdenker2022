@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    # TODO there might be a better way to do this?
     def setup_data
       @categories = Category.all
     end

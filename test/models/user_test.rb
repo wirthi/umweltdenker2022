@@ -4,6 +4,7 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: "Example user", email: "user@example.com", 
            password: "foobar", password_confirmation: "foobar")
+    @energie = categories(:energie)
   end
 
   test "should be valid" do
@@ -68,7 +69,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "associated contributions should be destroyed" do
     @user.save
-    @user.contributions.create!(content: "Lorem ipsum")
+    @user.contributions.create!(content: "Lorem ipsum", category: @energie)
     assert_difference 'Contribution.count', -1 do
       @user.destroy
     end
