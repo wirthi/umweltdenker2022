@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_06_153845) do
+ActiveRecord::Schema.define(version: 2022_01_08_092709) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2022_01_06_153845) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.integer "group_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
@@ -87,4 +88,5 @@ ActiveRecord::Schema.define(version: 2022_01_06_153845) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "contributions", "categories"
   add_foreign_key "contributions", "users"
+  add_foreign_key "users", "groups"
 end

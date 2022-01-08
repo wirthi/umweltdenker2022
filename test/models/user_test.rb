@@ -2,8 +2,9 @@ require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
   def setup
+    @group = groups(:default_group)
     @user = User.new(name: "Example user", email: "user@example.com", 
-           password: "foobar", password_confirmation: "foobar")
+           password: "foobar", password_confirmation: "foobar", group_id: @group.id )
     @energie = categories(:energie)
   end
 

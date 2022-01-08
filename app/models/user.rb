@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :contributions, dependent: :destroy
+  belongs_to :group
 
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email

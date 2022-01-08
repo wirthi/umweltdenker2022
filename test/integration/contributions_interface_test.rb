@@ -19,7 +19,7 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
     # Valid submission
     content = "This contribution really ties the room together"
     assert_difference 'Contribution.count', 1 do
-      post contributions_path, params: { contribution: { content: content, category: @energie } }
+      post contributions_path, params: { contribution: { content: content, category_id: @energie.id } }
     end
     assert_redirected_to root_url
     follow_redirect!

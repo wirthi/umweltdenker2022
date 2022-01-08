@@ -6,6 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+group_lvooe = Group.create!(name: "Landesverband Oberösterreich",
+  lat: "1234",
+  lon: "4567")
+group_lhf = Group.create!(name: "Langholzfeld",
+  lat: "1234",
+  lon: "4567")
+Group.create!(name: "Leonding",
+  lat: "1234",
+  lon: "4567")
+
 # Create a main sample user.
 User.create!(name: "Christian Wirth",
         email: "wirthi@gmx.at",
@@ -13,7 +23,8 @@ User.create!(name: "Christian Wirth",
         password_confirmation: "clancy26",
         admin: true,
         activated: true,
-        activated_at: Time.zone.now)
+        activated_at: Time.zone.now,
+        group_id: group_lvooe.id)
 
 99.times do |n|
   name = Faker::Name.name
@@ -24,18 +35,9 @@ User.create!(name: "Christian Wirth",
           password: password,
           password_confirmation: password,
           activated: true,
-          activated_at: Time.zone.now)
+          activated_at: Time.zone.now,
+          group_id: group_lhf.id)
 end
-
-Group.create!(name: "Landesverband Oberösterreich",
-  lat: "1234",
-  lon: "4567")
-Group.create!(name: "Langholzfeld",
-  lat: "1234",
-  lon: "4567")
-Group.create!(name: "Leonding",
-  lat: "1234",
-  lon: "4567")
 
 abfall = Category.create!(title: "Abfall",
   unit: "Kilogramm",
