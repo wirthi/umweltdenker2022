@@ -1,6 +1,10 @@
 class ContributionsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy, :new]
   before_action :correct_user, only: :destroy
+
+  def new
+    @contribution = Contribution.new
+  end
 
   def create
     @contribution = current_user.contributions.build(contribution_params)
@@ -39,7 +43,7 @@ class ContributionsController < ApplicationController
   private
 
     def contribution_params
-      params.require(:contribution).permit(:content, :image, :category)
+      params.require(:contribution).permit(:content, :image, :category_id)
     end
 
     def correct_user

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  
+  get '/new_contribution', to: 'contributions#new'  # why do I have to manually create that?
   
   # Users and sessions
   resources :users do
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   
   # Umweltdenker Application
-  resources :contributions, only: [:create, :destroy, :index]
+  resources :contributions, only: [:new, :create, :destroy, :index]
   resources :groups, only: [:index]
   resources :categories, only: [:index]
 end

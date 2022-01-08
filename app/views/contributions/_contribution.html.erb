@@ -7,8 +7,8 @@
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(contribution.created_at) %> ago.
-    <% if current_user?(contribution.user) %>
-      <%= link_to "delete", contribution, method: :delete, data: { confirm: "You sure?" } %>
+    <% if current_user?(contribution.user) && contribution.user.admin? %>
+      <%= link_to "delete", contribution, method: :delete, data: { confirm: "Wirklich löschen?" } %>
     <% end %>
   </span>
 </li>
