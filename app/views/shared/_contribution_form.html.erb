@@ -1,12 +1,21 @@
 <%= form_with(model: @contribution, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
+  <%= f.label :title, "Titel des Beitrags" %>
+  <%= f.text_field :title, placeholder: "Gib einen Titel ein" %>
+
   <%= f.label :category, "Kategorie" %>
   <%= f.collection_select :category_id, Category.order(:title),:id,:title, prompt: "-- Wähle eine Kategorie --", include_blank: false %>
 
+  <%= f.label :completion, "Abschlussdatum" %>
+  <%= f.text_field :completion, placeholder: "31.12.2022" %>
+
+  <%= f.label :amount, "Ergebnis (zählbarer Betrag)" %>
+  <%= f.text_field :amount, placeholder: "Wieviel kg/l/kWh/etc hast du erreicht" %>
+
   <div class="field">
     <%= f.label :content, "Beschreibung" %>
-    <%= f.text_area :content, placeholder: "Beschreiben deinen Beitrag" %>
+    <%= f.text_area :content, rows: 8, placeholder: "Beschreiben deinen Beitrag" %>
   </div>
   <span class="image">
     <%= f.label :image, "Datei-Anhang (Bild)" %>
