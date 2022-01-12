@@ -51,13 +51,12 @@ ActiveRecord::Schema.define(version: 2022_01_08_105124) do
   create_table "contributions", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
-    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
     t.string "amount"
     t.string "completion"
-    t.index ["category_id"], name: "index_contributions_on_category_id"
+    t.integer "category_id"
     t.index ["user_id", "created_at"], name: "index_contributions_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_contributions_on_user_id"
   end
