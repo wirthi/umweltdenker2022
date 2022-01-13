@@ -1,6 +1,9 @@
 <li id="contribution-<%= contribution.id %>">
   <%= link_to gravatar_for(contribution.user, size: 50), contribution.user %>
-  <span class="user"><%= link_to contribution.user.name, contribution.user %></span>
+  <span class="user">
+    <strong><%= link_to contribution.title, contribution %></strong>
+    (<%= link_to contribution.user.name, contribution.user %>)
+  </span>
   <span class="content">
     <%= contribution.content %>
     <%= image_tag contribution.image if contribution.image.attached? %>

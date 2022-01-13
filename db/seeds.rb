@@ -59,7 +59,13 @@ Category.create!(title: "Wasser",
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(word_count: 5)
-  users.each { |user| user.contributions.create!(content: content, category: abfall) }
+  title = Faker::Lorem.sentence(word_count: 2)
+  users.each { |user| user.contributions.create!(
+    title: title,
+    content: content,
+    category: abfall,
+    amount: 42,
+    completion: "31.12.2022") }
 end
   
   
