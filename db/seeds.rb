@@ -41,19 +41,24 @@ end
 
 abfall = Category.create!(title: "Abfall",
   unit: "Kilogramm",
-  unit_short: "kg")
+  unit_short: "kg",
+  title_en: "waste")
 Category.create!(title: "Energie",
   unit: "Kilowattstunden",
-  unit_short: "kWh")
+  unit_short: "kWh",
+  title_en: "energy")
 Category.create!(title: "Ernährung",
   unit: "Kilogramm Kohlendioxid",
-  unit_short: "kg CO2")
+  unit_short: "kg CO2",
+  title_en: "food")
 Category.create!(title: "Verkehr",
   unit: "Kilometer",
-  unit_short: "km")
+  unit_short: "km",
+  title_en: "traffic")
 Category.create!(title: "Wasser",
   unit: "Liter",
-  unit_short: "l")
+  unit_short: "l",
+  title_en: "water")
 
 # Generate Contributions for a subset of users.
 users = User.order(:created_at).take(6)

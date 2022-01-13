@@ -4,8 +4,10 @@ energie:
   title: Energie
   unit: Kilowattstunden
   unit_short: kWh
+  title_en: energy
 
 wasser:
   title: Wasser
   unit: Liter
   unit_short: l
+  title_en: water

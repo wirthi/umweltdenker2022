@@ -23,7 +23,29 @@
       Die <strong>Umweltdenker</strong> sind ein Projekt der 
       <a href="http://ooe.pfadfinder.at/">Ober&ouml;sterreichischen Pfadfinderinnen und Pfadfinder</a>.
     </h2>
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Anmelden (Login)", login_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Account anlegen", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
-  <%= link_to image_tag("ppoe_logo.jpg", alt: "Logo O&Ouml; PfadfinderInnen", width: "200"), "http://ooe.pfadfinder.at/" %>
+
+  <h1>Neuer Beitrag</h1>
+  <div class="row">
+    <% @categories.each do |category| %>
+      <div class="col-md-4">
+        <%= link_to image_tag("category_#{category.title_en}.png", alt: "Logo Kategorie: #{category.title}", width: "200"), new_contribution_path(:category=> category) %>
+        <br/>
+        <%= link_to category.title, new_contribution_path(:category=> category) %>
+        <br/><br/>
+      </div>
+    <% end %>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= link_to image_tag("ppoe_logo.jpg", alt: "Logo O&Ouml; PfadfinderInnen", width: "200"), "http://ooe.pfadfinder.at/" %>
+    </div>
+    <div class="col-md-6">
+    </div>
+  </div>
 <% end %>
