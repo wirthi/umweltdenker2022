@@ -26,7 +26,7 @@ User.create!(name: "Christian Wirth",
         activated_at: Time.zone.now,
         group_id: group_lvooe.id)
 
-99.times do |n|
+15.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
@@ -43,26 +43,26 @@ abfall = Category.create!(title: "Abfall",
   unit: "Kilogramm",
   unit_short: "kg",
   title_en: "waste")
-Category.create!(title: "Energie",
+energie = Category.create!(title: "Energie",
   unit: "Kilowattstunden",
   unit_short: "kWh",
   title_en: "energy")
-Category.create!(title: "Ernährung",
+ernaehrung = Category.create!(title: "Ernährung",
   unit: "Kilogramm Kohlendioxid",
   unit_short: "kg CO2",
   title_en: "food")
-Category.create!(title: "Verkehr",
+verkehr = Category.create!(title: "Verkehr",
   unit: "Kilometer",
   unit_short: "km",
   title_en: "traffic")
-Category.create!(title: "Wasser",
+wasser = Category.create!(title: "Wasser",
   unit: "Liter",
   unit_short: "l",
   title_en: "water")
 
 # Generate Contributions for a subset of users.
 users = User.order(:created_at).take(6)
-50.times do
+15.times do
   content = Faker::Lorem.sentence(word_count: 5)
   title = Faker::Lorem.sentence(word_count: 2)
   users.each { |user| user.contributions.create!(
@@ -72,6 +72,14 @@ users = User.order(:created_at).take(6)
     amount: 42,
     completion: "31.12.2022") }
 end
-  
-  
-      
+
+# Generate Challenges
+Challenge.create(title: "Eine-Woche-kein-Auto-Challenge",
+  description: "Versuche mal, eine Woche ohne Auto auszukommen. Geht leicht, ich bin ja noch zu jung und darf gar nicht Auto fahren… Dann verzichte aufs gefahren werden und geh zu Fuß oder nimm das Fahrrad: Auf dem Weg zur Schule, Zum Sport, zum Heimabend etc.",
+  submission: "Gib an, wieviele Kilometer Autofahrt du eingespart hast.",
+  category: verkehr)
+
+Challenge.create(title: "Schweinefleisch-Challenge",
+  description: "Iss nur 2 mal pro Woche Schweinefleisch. Das spart über 4 kg CO=2 pro Woche ein",
+  submission: "4 kg CO2, wenn du es schaffst",
+  category: ernaehrung)

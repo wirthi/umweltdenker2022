@@ -34,4 +34,6 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
   get '/new_contribution', to: 'contributions#new'  # why do I have to manually create that?
 
+  # challenges
+  get 'challenges/index'
 end
