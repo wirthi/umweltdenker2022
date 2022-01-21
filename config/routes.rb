@@ -1,17 +1,24 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-  get 'password_resets/edit'
-  get 'sessions/new'
+  # match "demo/index", :to => "demo#index", :via => :get
+
   root 'static_pages#home'
-  get '/help', to: 'static_pages#help'
-  get '/about', to: 'static_pages#about'
-  get '/contact', to: 'static_pages#contact'
-  get '/signup', to: 'users#new'
+
+  # sessions
+  get 'sessions/new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/new_contribution', to: 'contributions#new'  # why do I have to manually create that?
-  
+
+  # user management
+  get '/signup', to: 'users#new'
+  get 'password_resets/new'
+  get 'password_resets/edit'
+
+  #static pages
+  get '/help', to: 'static_pages#help'
+  get '/about', to: 'static_pages#about'
+  get '/contact', to: 'static_pages#contact'
+
   # Users and sessions
   resources :users do
     member do
@@ -25,4 +32,6 @@ Rails.application.routes.draw do
   resources :contributions, only: [:new, :create, :destroy, :index, :show]
   resources :groups, only: [:index]
   resources :categories, only: [:index]
+  get '/new_contribution', to: 'contributions#new'  # why do I have to manually create that?
+
 end
