@@ -5,13 +5,16 @@
     <%= form_with(model: @user, local: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name %>
+      <%= f.label :name, "Vorname / Spitzname" %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :name, "Nachname (wird nicht veröffentlicht)" %>
       <%= f.text_field :name, class: 'form-control' %>
 
       <%= f.label :group, "Pfadfinder-Gruppe" %>
       <%= f.collection_select :group_id, Group.order(:name),:id,:name, prompt: "-- Wähle deine Pfadfindergruppe --", include_blank: false %>
 
-      <%= f.label :email, "E-Mail-Adresse" %>
+      <%= f.label :email, "E-Mail-Adresse (wird nicht veröffentlicht)" %>
       <%= f.email_field :email, class: 'form-control' %>
 
       <%= f.label :password, "Passwort" %>

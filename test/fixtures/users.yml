@@ -1,7 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 michael:
-  name: Michael Example
+  firstname: Michael
+  name: Example
   email: michael@example.com
   password_digest: <%= User.digest('password') %>
   admin: true
@@ -10,7 +11,8 @@ michael:
   group: default_group
 
 archer:
-  name: Sterling Archer
+  firstname: Sterling
+  name: Archer
   email: duchess@example.gov
   password_digest: <%= User.digest('password') %>
   activated: true
@@ -18,7 +20,8 @@ archer:
   group: default_group
 
 lana:
-  name: Lana Kane
+  firstname: Lana
+  name: Kane
   email: hands@example.gov
   password_digest: <%= User.digest('password') %>
   activated: true
@@ -26,7 +29,8 @@ lana:
   group: default_group
 
 malory:
-  name: Malory Archer
+  firstname: Malory
+  name: Archer
   email: boss@example.gov
   password_digest: <%= User.digest('password') %>
   activated: true
@@ -35,7 +39,8 @@ malory:
 
 <% 30.times do |n| %>
 user_<%= n %>:
-  name: <%= "User #{n}" %>
+  name: <%= "Vorname_#{n}" %>
+  name: <%= "Nachname_#{n}" %>
   email: <%= "user-#{n}@example.com" %>
   password_digest: <%= User.digest('password') %>
   activated: true

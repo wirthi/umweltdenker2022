@@ -3,7 +3,7 @@ require "test_helper"
 class UserTest < ActiveSupport::TestCase
   def setup
     @group = groups(:default_group)
-    @user = User.new(name: "Example user", email: "user@example.com", 
+    @user = User.new(firstname: "Ex", name: "Example", email: "user@example.com", 
            password: "foobar", password_confirmation: "foobar", group_id: @group.id )
     @energie = categories(:energie)
   end
@@ -17,6 +17,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "firstname should be present" do
+    @user.firstname = "     "
+    assert_not @user.valid?
+  end
+
   test "email should be present" do
     @user.email = "     "
     assert_not @user.valid?
@@ -24,6 +29,11 @@ class UserTest < ActiveSupport::TestCase
 
   test "name should not be too long" do
     @user.name = "a"*51
+    assert_not @user.valid?
+  end
+
+  test "firstname should not be too long" do
+    @user.firstname = "a"*51
     assert_not @user.valid?
   end
 

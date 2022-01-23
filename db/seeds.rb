@@ -17,7 +17,8 @@ Group.create!(name: "Leonding",
   lon: "4567")
 
 # Create a main sample user.
-User.create!(name: "Christian Wirth",
+User.create!(firstname: "Christian",
+        name: "Wirth",
         email: "wirthi@gmx.at",
         password: "clancy26",
         password_confirmation: "clancy26",
@@ -27,10 +28,12 @@ User.create!(name: "Christian Wirth",
         group_id: group_lvooe.id)
 
 15.times do |n|
-  name = Faker::Name.name
+  firstname = Faker::Name.first_name
+  name = Faker::Name.last_name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
   User.create!(name: name,
+          firstname: firstname,
           email: email,
           password: password,
           password_confirmation: password,
