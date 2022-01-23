@@ -10,6 +10,10 @@
   </aside>
   <div class="col-md-8">
     <p>
+      <% if @contribution.challenge %>
+        <strong>Basierend auf Challenge</strong>: 
+        <%= link_to "#{@contribution.challenge.title}", challenges_path(:challenge => @contribution.challenge) %><br/>
+      <% end %>
       <strong>Kategorie</strong>: <%= @contribution.category.title %><br/>
       <strong>Gruppe</strong>: <%= @contribution.user.group.name %><br/>
       <strong>Betrag</strong> (<%= @contribution.category.unit_short %>): <%= @contribution.amount %><br/>

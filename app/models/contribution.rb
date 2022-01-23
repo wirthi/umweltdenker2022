@@ -1,6 +1,8 @@
 class Contribution < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  belongs_to :challenge, optional: true
+
   has_one_attached :image
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true

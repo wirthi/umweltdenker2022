@@ -4,6 +4,9 @@ class ContributionsController < ApplicationController
 
   def new
     @contribution = Contribution.new
+    if params[:challenge]
+      @template_challenge = Challenge.find_by(id: params[:challenge])
+    end
   end
 
   def create
@@ -43,7 +46,7 @@ class ContributionsController < ApplicationController
   private
 
     def contribution_params
-      params.require(:contribution).permit(:content, :image, :category_id, :title, :amount, :completion)
+      params.require(:contribution).permit(:content, :image, :category_id, :challenge_id, :title, :amount, :completion)
     end
 
     def correct_user

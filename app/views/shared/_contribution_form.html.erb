@@ -1,6 +1,10 @@
 <%= form_with(model: @contribution, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
+  <% if @template_challenge %>
+    <%= hidden_field_tag "contribution[challenge_id]", @template_challenge.id %>
+  <% end %>
+
   <%= f.label :title, "Titel des Beitrags" %>
   <%= f.text_field :title, placeholder: "Gib einen Titel ein" %>
 

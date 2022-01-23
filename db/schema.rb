@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_23_094157) do
+ActiveRecord::Schema.define(version: 2022_01_23_173401) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2022_01_23_094157) do
     t.string "amount"
     t.string "completion"
     t.integer "category_id"
+    t.integer "challenge_id"
+    t.index ["challenge_id"], name: "index_contributions_on_challenge_id"
     t.index ["user_id", "created_at"], name: "index_contributions_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_contributions_on_user_id"
   end
@@ -102,6 +104,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_094157) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "challenges", "categories"
   add_foreign_key "contributions", "categories"
+  add_foreign_key "contributions", "challenges"
   add_foreign_key "contributions", "users"
   add_foreign_key "users", "groups"
 end
