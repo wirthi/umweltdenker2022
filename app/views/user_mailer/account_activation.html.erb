@@ -1,6 +1,11 @@
-<h1>Sample App</h1>
-<p>Hi <%= @user.firstname %>,</p>
+<h1>Umweltdenker 2022</h1>
+<p>Hallo <%= @user.firstname %>,</p>
 <p>
-Welcome to the Sample App! Click on the link below to activate your account:
+Willkommen im Portal der Umweltdenker 2022! Bitte klicke auf diesen Link um deinen Benutzeraccount zu aktivieren:
 </p>
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>
+<%= link_to "Aktivieren", edit_account_activation_url(@user.activation_token, email: @user.email) %>
+<p>
+Vielen Dank,<br />
+Umweltdenker 2022<br />
+Oberösterreichische Pfadfinderinnen und Pfadfinder
+</p>
