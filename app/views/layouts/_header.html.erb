@@ -16,15 +16,13 @@
         <li><%= link_to "Hilfe", help_path %></li>
         <%= render 'shared/contributions_menu' %>
         <%= render 'shared/challenges_menu' %>
-        <li><%= link_to "Gruppen", groups_path %></li>
-        <li><%= link_to "Kategorien", categories_path %></li>
+        <%= render 'shared/admin_menu' if logged_in_admin? %>
         <% if logged_in? %>
-          <li><%= link_to "Benutzer", users_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><%= link_to "Profil", current_user %></li>
-              <li><%= link_to "Einstellungen", edit_user_path(current_user) %></li>
+              <li><%= link_to "Profil bearbeiten", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li><%= link_to "Abmelden", logout_path, method: :delete %></li>
             </ul>

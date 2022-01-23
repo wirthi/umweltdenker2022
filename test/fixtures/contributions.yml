@@ -32,6 +32,14 @@ contribution_<%= n %>:
   category: energie
 <% end %>
 
+<% 30.times do |n| %>
+contribution_<%= n %>:
+  content: <%= Faker::Lorem.sentence(word_count: 5) %>
+  created_at: <%= 42.days.ago %>
+  user: archer
+  category: energie
+<% end %>
+
 ants:
   content: "Oh, is that what you want? Because that's how you get ants!"
   created_at: <%= 2.years.ago %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :following, :followers]
+  before_action :logged_in_user, only: [:edit, :update, :index, :destroy]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
@@ -12,6 +12,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    # non-admin can only see himself
+    #if !(current_user.admin? || current_user.id == params[:id])
+    #  redirect_to root_url
+    #end
+
     @user = User.find(params[:id])
     @contributions = @user.contributions.paginate(page: params[:page])
   end
