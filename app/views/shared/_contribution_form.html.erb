@@ -3,18 +3,27 @@
 
   <% if @template_challenge %>
     <%= hidden_field_tag "contribution[challenge_id]", @template_challenge.id %>
+
   <% end %>
 
   <%= f.label :title, "Titel des Beitrags" %>
   <%= f.text_field :title, placeholder: "Gib einen Titel ein" %>
 
   <%= f.label :category, "Kategorie" %>
-  <%= f.collection_select :category_id, Category.order(:title),:id,:title, prompt: "-- Wähle eine Kategorie --", include_blank: false %>
+  <% if @template_challenge %>
+    <p><%= @template_challenge.category.title %> (fixiert durch Challenge)</p>
+    <%= hidden_field_tag "contribution[category_id]", @template_challenge.category.id %>
+  <% else %>
+    <%= f.collection_select :category_id, Category.order(:title),:id,:title, prompt: "-- Wähle eine Kategorie --", include_blank: false %>
+  <% end %>
 
   <%= f.label :completion, "Abschlussdatum" %>
   <%= f.text_field :completion, placeholder: "31.12.2022" %>
 
   <%= f.label :amount, "Ergebnis (zählbarer Betrag)" %>
+  <% if @template_challenge %>
+    <p><%= @template_challenge.submission %> (Vorschlag)</p>
+  <% end %>
   <%= f.text_field :amount, placeholder: "Wieviel kg/l/kWh/etc hast du erreicht" %>
 
   <div class="field">
