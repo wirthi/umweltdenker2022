@@ -15,5 +15,6 @@ class ApplicationController < ActionController::Base
 
     def setup_data
       @categories = Category.all
+      @challenges = Challenge.all
     end
 end
