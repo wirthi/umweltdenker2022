@@ -1,5 +1,7 @@
 <h3><%= challenge.title %></h3>
 
-  <strong>Kategorie</strong>: <%= challenge.category.title %><br />
+  <strong>Kategorie</strong>: <%= challenge.category.try(:title) %><br />
   <strong>Beschreibung</strong>: <%= challenge.description %><br />
   <strong>Aufgabe</strong>: <%= challenge.submission %><br />
+
+<%= link_to "Ich habe #{challenge.title} abgeschlossen!", new_contribution_path(:challenge=> challenge) %>
