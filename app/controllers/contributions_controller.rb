@@ -10,7 +10,7 @@ class ContributionsController < ApplicationController
     @contribution = current_user.contributions.build(contribution_params)
     @contribution.image.attach(params[:contribution][:image])
     if @contribution.save
-      flash[:success] = "Contribution created!"
+      flash[:success] = "Beitrag angelegt!"
       redirect_to root_url
     else
       render 'static_pages/home'
@@ -19,7 +19,7 @@ class ContributionsController < ApplicationController
 
   def destroy
     @contribution.destroy
-    flash[:success] = "Contribution deleted"
+    flash[:success] = "Beitrag gelöscht!"
     if request.referrer.nil? || request.referrer == contributions_url
       redirect_to root_url
     else

@@ -5,8 +5,8 @@
     <%= form_with(model: @user, local: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name, "Vorname / Spitzname" %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.label :firstname, "Vorname / Spitzname" %>
+      <%= f.text_field :firstname, class: 'form-control' %>
 
       <%= f.label :name, "Nachname (wird nicht veröffentlicht)" %>
       <%= f.text_field :name, class: 'form-control' %>

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     def logged_in_user
       unless logged_in?
         store_location # for friendly forwarding
-        flash[:danger] = "Please log in."
+        flash[:danger] = "Bitte mit Benutzer-Account einloggen."
         redirect_to login_url
       end
     end
