@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'christian.wirth@ooe.pfadfinder.at'
+  default from: 'ppoeumweltdenker2022@gmail.com'
   layout 'mailer'
 end
