@@ -1,3 +1,4 @@
+<% @user ||= current_user %>
 <% if @user.contributions.any? %>
   <ol class="contributions">
     <%= render @user.contributions %>

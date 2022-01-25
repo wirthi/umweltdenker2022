@@ -2,7 +2,7 @@
   <%= image_tag("category_#{contribution.category.title_en}.png", alt: "Logo Kategorie", width: "40") %>
   <span class="user">
     <strong><%= link_to contribution.title, contribution %></strong>
-    (<%= link_to contribution.user.name, contribution.user %>)
+    (<%= link_to contribution.user.firstname, contribution.user %>)
   </span>
   <span class="content">
     <%= contribution.content %>
