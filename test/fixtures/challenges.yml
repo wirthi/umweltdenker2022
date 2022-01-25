@@ -3,9 +3,9 @@
 challenge1:
   title: MyString
   description: MyText
-  category: one
+  category: energie
 
 challenge2:
   title: MyString
   description: MyText
-  category: two
+  category: wasser
