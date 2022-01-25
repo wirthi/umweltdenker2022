@@ -1,5 +1,7 @@
 <h3><%= challenge.title %></h3>
 
+  <%= image_tag("category_#{challenge.category.title_en}.png", alt: "Logo Kategorie: #{challenge.category.title}", width: "40") %>
+
   <strong>Kategorie</strong>: <%= challenge.category.try(:title) %><br />
   <strong>Beschreibung</strong>: <%= challenge.description %><br />
   <strong>Aufgabe</strong>: <%= challenge.submission %><br />
