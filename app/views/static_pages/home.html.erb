@@ -17,6 +17,7 @@
 <% else %>
   <div class="center jumbotron">
     <h1>Wilkommen beim Portal der Umweltdenker 2022</h1>
+    <%= image_tag("logo_uwd.jpg", alt: "Logo Umweltdenker", width: "300") %>
     <h2>
       Die <strong>Umweltdenker</strong> sind ein Projekt der 
       <a href="http://ooe.pfadfinder.at/">Ober&ouml;sterreichischen Pfadfinderinnen und Pfadfinder</a>.
@@ -25,7 +26,7 @@
     <%= link_to "Account anlegen", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
 
-  <h1>Neuer Beitrag</h1>
+  <h1>Neue Beitrag eintragen</h1>
   <div class="row">
     <% @categories.each do |category| %>
       <div class="col-md-4">
