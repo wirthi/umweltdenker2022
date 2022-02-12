@@ -6,18 +6,47 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-group_lvooe = Group.create!(name: "Landesverband Oberösterreich",
-  lat: "1234",
-  lon: "4567")
-group_lhf = Group.create!(name: "Langholzfeld",
-  lat: "1234",
-  lon: "4567")
-Group.create!(name: "Leonding",
-  lat: "1234",
-  lon: "4567")
+group_lvooe = Group.create!(name: "Landesverband Oberösterreich", lat: "1234", lon: "4567")
+Group.create!(name: "4222", lat: "1234", lon: "4567")
+Group.create!(name: "Bad Ischl", lat: "1234", lon: "4567")
+Group.create!(name: "Bad Goisern", lat: "1234", lon: "4567")
+Group.create!(name: "Braunau am Inn", lat: "1234", lon: "4567")
+Group.create!(name: "Brunnenthal", lat: "1234", lon: "4567")
+Group.create!(name: "Enns", lat: "1234", lon: "4567")
+Group.create!(name: "Freistadt", lat: "1234", lon: "4567")
+Group.create!(name: "Gallneukirchen-Engerwitzdorf", lat: "1234", lon: "4567")
+Group.create!(name: "Gmunden", lat: "1234", lon: "4567")
+Group.create!(name: "Hörsching", lat: "1234", lon: "4567")
+Group.create!(name: "Kremstal", lat: "1234", lon: "4567")
+Group.create!(name: "Kronstorf", lat: "1234", lon: "4567")
+group_lhf = Group.create!(name: "Langholzfeld", lat: "1234", lon: "4567")
+Group.create!(name: "Leonding", lat: "1234", lon: "4567")
+Group.create!(name: "Linz 2", lat: "1234", lon: "4567")
+Group.create!(name: "Linz 4", lat: "1234", lon: "4567")
+Group.create!(name: "Linz 5", lat: "1234", lon: "4567")
+Group.create!(name: "Linz 6", lat: "1234", lon: "4567")
+Group.create!(name: "Linz 8 - Ebelsberg-Pichling", lat: "1234", lon: "4567")
+Group.create!(name: "Linz 12", lat: "1234", lon: "4567")
+Group.create!(name: "Steyrtal", lat: "1234", lon: "4567")
+Group.create!(name: "Nöstlbach", lat: "1234", lon: "4567")
+Group.create!(name: "Ottensheim", lat: "1234", lon: "4567")
+Group.create!(name: "Pregarten", lat: "1234", lon: "4567")
+Group.create!(name: "Puchenau", lat: "1234", lon: "4567")
+Group.create!(name: "Regau", lat: "1234", lon: "4567")
+Group.create!(name: "Ried im Innkreis", lat: "1234", lon: "4567")
+Group.create!(name: "Rohrbach", lat: "1234", lon: "4567")
+Group.create!(name: "Schildorn", lat: "1234", lon: "4567")
+Group.create!(name: "Sauwald", lat: "1234", lon: "4567")
+Group.create!(name: "Steyr 1", lat: "1234", lon: "4567")
+Group.create!(name: "Schwanenstadt", lat: "1234", lon: "4567")
+Group.create!(name: "Traun-Oedt", lat: "1234", lon: "4567")
+Group.create!(name: "Vöcklabruck", lat: "1234", lon: "4567")
+Group.create!(name: "Vöcklamarkt", lat: "1234", lon: "4567")
+Group.create!(name: "Vorchdorf", lat: "1234", lon: "4567")
+Group.create!(name: "Wels", lat: "1234", lon: "4567")
 
 # Create a main sample user.
-User.create!(firstname: "Christian Admin",
+User.create!(firstname: "Christian ADMIN",
         name: "Wirth",
         email: "wirthi@gmx.at",
         password: "clancy26",
@@ -27,7 +56,7 @@ User.create!(firstname: "Christian Admin",
         activated_at: Time.zone.now,
         group_id: group_lvooe.id)
 
-User.create!(firstname: "Christian Einfach",
+User.create!(firstname: "Christian Wirth",
         name: "Wirth",
         email: "cw@cwirth.at",
         password: "clancy26",
@@ -37,20 +66,20 @@ User.create!(firstname: "Christian Einfach",
         activated_at: Time.zone.now,
         group_id: group_lhf.id)
 
-15.times do |n|
-  firstname = Faker::Name.first_name
-  name = Faker::Name.last_name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(name: name,
-          firstname: firstname,
-          email: email,
-          password: password,
-          password_confirmation: password,
-          activated: true,
-          activated_at: Time.zone.now,
-          group_id: group_lhf.id)
-end
+#15.times do |n|
+#  firstname = Faker::Name.first_name
+#  name = Faker::Name.last_name
+#  email = "example-#{n+1}@railstutorial.org"
+#  password = "password"
+#  User.create!(name: name,
+#          firstname: firstname,
+#          email: email,
+#          password: password,
+#          password_confirmation: password,
+#          activated: true,
+#          activated_at: Time.zone.now,
+#          group_id: group_lhf.id)
+#end
 
 abfall = Category.create!(title: "Abfall",
   unit: "Kilogramm",
