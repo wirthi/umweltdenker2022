@@ -7,7 +7,11 @@
   <% end %>
 
   <%= f.label :title, "Titel des Beitrags" %>
-  <%= f.text_field :title, placeholder: "Gib einen Titel ein" %>
+  <% if @template_challenge %>
+    <%= f.text_field :title, placeholder: "Gib einen Titel ein", value: @template_challenge.title %>
+  <% else %>
+    <%= f.text_field :title, placeholder: "Gib einen Titel ein" %>
+  <% end %>
 
   <%= f.label :category, "Kategorie" %>
   <% if @template_challenge %>
