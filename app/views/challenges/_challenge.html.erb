@@ -3,7 +3,7 @@
   <%= image_tag("category_#{challenge.category.title_en}.png", alt: "Logo Kategorie: #{challenge.category.title}", width: "40") %>
 
   <strong>Kategorie</strong>: <%= challenge.category.try(:title) %><br />
-  <strong>Beschreibung</strong>: <%= challenge.description %><br />
+  <strong>Beschreibung</strong>: <%= challenge.description.html_safe %><br /><br />
   <strong>Aufgabe</strong>: <%= challenge.submission %><br />
 
 <%= link_to "Ich habe #{challenge.title} abgeschlossen!", new_contribution_path(:challenge=> challenge) %>
