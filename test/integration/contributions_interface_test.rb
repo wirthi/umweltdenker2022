@@ -19,7 +19,13 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
     # Valid submission
     content = "This contribution really ties the room together"
     assert_difference 'Contribution.count', 1 do
-      post contributions_path, params: { contribution: { content: content, category_id: @energie.id } }
+      post contributions_path, params: {
+        contribution: {
+          content: content,
+          title: "example title",
+          category_id: @energie.id
+        }
+      }
     end
     assert_redirected_to root_url
     follow_redirect!
@@ -33,5 +39,20 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
     # Visit different user (no delete links).
     get user_path(users(:archer))
     assert_select 'a', { text: 'delete', count: 0 }
+  end
+
+  test "invalid contribution submission" do
+    log_in_as(@user)
+    assert_no_difference 'Contribution.count' do
+      post contributions_path, params: { contribution: {
+          content: "Testcontent",
+          category_id: @energie.id,
+          title: ""
+        }
+      }
+    end
+    assert_template 'contributions/new'
+    assert_select 'div#error_explanation'
+    assert_select 'div.field_with_errors'
   end
 end

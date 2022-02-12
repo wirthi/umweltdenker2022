@@ -4,7 +4,7 @@ class ContributionTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
     energie = categories(:energie)
-    @contribution = @user.contributions.build(content: "Lorem ipsum", category: energie)
+    @contribution = @user.contributions.build(content: "Lorem ipsum", title: "example", category: energie)
   end
 
   test "should be valid" do

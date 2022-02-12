@@ -16,7 +16,7 @@ class ContributionsController < ApplicationController
       flash[:success] = "Beitrag angelegt!"
       redirect_to root_url
     else
-      render 'static_pages/home'
+      render 'new'
     end
   end
 
