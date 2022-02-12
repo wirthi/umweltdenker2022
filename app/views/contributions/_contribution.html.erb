@@ -9,7 +9,7 @@
     <%= image_tag contribution.image if contribution.image.attached? %>
   </span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(contribution.created_at) %> ago.
+    (<%= contribution.user.group.name %>)
     <% if current_user?(contribution.user) && contribution.user.admin? %>
       <%= link_to "delete", contribution, method: :delete, data: { confirm: "Wirklich löschen?" } %>
     <% end %>
