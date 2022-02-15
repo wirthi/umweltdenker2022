@@ -23,6 +23,8 @@
       <%= f.label :password_confirmation, "Passwort (bitte wiederholen)" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+      <%= link_to "Beachte unsere Datenschutz-Erklärung", privacy_path %>
+
       <%= f.submit "Benutzeraccount anlegen", class: "btn btn-primary" %>
     <% end %>
   </div>
