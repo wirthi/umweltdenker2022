@@ -24,7 +24,8 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
           content: content,
           title: "example title",
           category_id: @energie.id,
-          participants: 1
+          participants: 1,
+          amount: 42
         }
       }
     end

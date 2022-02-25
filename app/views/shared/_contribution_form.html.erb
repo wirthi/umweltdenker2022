@@ -28,10 +28,10 @@
   <% if @template_challenge %>
     <p><%= @template_challenge.submission %> (Vorschlag)</p>
   <% end %>
-  <%= f.text_field :amount, placeholder: "Wieviel kg/l/kWh/etc hast du erreicht" %>
+  <%= f.text_field :amount, placeholder: "Wieviel kg/l/kWh/etc hast du erreicht (ganze Zahl)" %>
 
   <%= f.label :participants, "Teilnehmeranzahl" %>
-  <%= f.text_field :participants, placeholder: "1" %>
+  <%= f.text_field :participants, placeholder: "1 (ganze Zahl)" %>
 
   <div class="field">
     <%= f.label :content, "Beschreibung" %>
