@@ -30,6 +30,9 @@
   <% end %>
   <%= f.text_field :amount, placeholder: "Wieviel kg/l/kWh/etc hast du erreicht" %>
 
+  <%= f.label :participants, "Teilnehmeranzahl" %>
+  <%= f.text_field :participants, placeholder: "1" %>
+
   <div class="field">
     <%= f.label :content, "Beschreibung" %>
     <%= f.text_area :content, rows: 8, placeholder: "Beschreiben deinen Beitrag" %>

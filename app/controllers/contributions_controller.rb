@@ -46,7 +46,7 @@ class ContributionsController < ApplicationController
   private
 
     def contribution_params
-      params.require(:contribution).permit(:content, :image, :category_id, :challenge_id, :title, :amount, :completion)
+      params.require(:contribution).permit(:content, :image, :category_id, :challenge_id, :title, :amount, :completion, :participants)
     end
 
     def correct_user

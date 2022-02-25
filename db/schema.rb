@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_23_173401) do
+ActiveRecord::Schema.define(version: 2022_02_25_200639) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_173401) do
     t.string "completion"
     t.integer "category_id"
     t.integer "challenge_id"
+    t.integer "participants"
     t.index ["challenge_id"], name: "index_contributions_on_challenge_id"
     t.index ["user_id", "created_at"], name: "index_contributions_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_contributions_on_user_id"

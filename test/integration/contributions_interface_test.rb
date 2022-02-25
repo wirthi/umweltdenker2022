@@ -12,7 +12,7 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
     ## assert_select 'div.pagination' # not paginating currentls
     # Invalid submission
     assert_no_difference 'Contribution.count' do
-      post contributions_path, params: { contribution: { content: "" } }
+      post contributions_path, params: { contribution: { content: "", participants: 1 } }
     end
     assert_select 'div#error_explanation'
     ## assert_select 'a[href=?]', '/?page=2' # Correct pagination link (not any longer!)
@@ -23,7 +23,8 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
         contribution: {
           content: content,
           title: "example title",
-          category_id: @energie.id
+          category_id: @energie.id,
+          participants: 1
         }
       }
     end

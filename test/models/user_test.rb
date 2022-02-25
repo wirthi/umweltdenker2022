@@ -80,7 +80,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "associated contributions should be destroyed" do
     @user.save
-    @user.contributions.create!(content: "Lorem ipsum", title: "example", category: @energie)
+    @user.contributions.create!(content: "Lorem ipsum", title: "example", category: @energie, participants:1)
     assert_difference 'Contribution.count', -1 do
       @user.destroy
     end
