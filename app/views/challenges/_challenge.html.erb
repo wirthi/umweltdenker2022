@@ -1,4 +1,5 @@
-<h3><%= challenge.title %></h3>
+<div class="col-sm bg-challenge-<%= challenge.category.id %>">
+  <h3><%= challenge.title %></h3>
 
   <%= image_tag("category_#{challenge.category.title_en}.png", alt: "Logo Kategorie: #{challenge.category.title}", width: "40") %>
 
@@ -6,4 +7,5 @@
   <strong>Beschreibung</strong>: <%= challenge.description.html_safe %><br /><br />
   <strong>Aufgabe</strong>: <%= challenge.submission %><br />
 
-<%= link_to "Ich habe #{challenge.title} abgeschlossen!", new_contribution_path(:challenge=> challenge) %>
+  <%= link_to "Ich habe #{challenge.title} abgeschlossen!", new_contribution_path(:challenge=> challenge) %>
+</div>
