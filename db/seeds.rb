@@ -102,17 +102,19 @@ wasser = Category.create!(title: "Wasser",
   unit_short: "l",
   title_en: "water")
 
-# Generate Contributions for a subset of users.
-users = User.order(:created_at).take(6)
-15.times do
-  content = Faker::Lorem.sentence(word_count: 5)
-  title = Faker::Lorem.sentence(word_count: 2)
-  users.each { |user| user.contributions.create!(
-    title: title,
-    content: content,
-    category: abfall,
-    amount: 42,
-    completion: "31.12.2022") }
+# Generate Contributions for a subset of users in DEVELOPMENT
+if Rails.env.development?
+  users = User.order(:created_at).take(6)
+  15.times do
+    content = Faker::Lorem.sentence(word_count: 5)
+    title = Faker::Lorem.sentence(word_count: 2)
+    users.each { |user| user.contributions.create!(
+      title: title,
+      content: content,
+      category: abfall,
+      amount: 42,
+      completion: "31.12.2022") }
+  end
 end
 
 # == Challenges Abfall ==
