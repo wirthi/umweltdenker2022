@@ -4,7 +4,7 @@
     <li><%= link_to "Alle Challenges", challenges_path %></li>
     <li class="divider"></li>
     <% @challenges.each do |challenge| %>
-      <li><%= link_to "#{challenge.title}", challenges_path(:challenge => challenge) %></li>
+      <li><%= link_to "#{challenge.category.title}: #{challenge.title}", challenges_path(:challenge => challenge) %></li>
     <% end %>
   </ul>
 </li>
