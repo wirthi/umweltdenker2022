@@ -3,7 +3,8 @@ require "test_helper"
 class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:michael)
-    @energie = categories(:energie)
+    @cat_energie = categories(:energie)
+    @cat_traffic = categories(:traffic)
   end
   
   test "contribution interface" do
@@ -23,7 +24,7 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
         contribution: {
           content: content,
           title: "example title",
-          category_id: @energie.id,
+          category_id: @cat_energie.id,
           participants: 1,
           amount: 42
         }
@@ -48,7 +49,7 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Contribution.count' do
       post contributions_path, params: { contribution: {
           content: "Testcontent",
-          category_id: @energie.id,
+          category_id: @cat_energie.id,
           title: ""
         }
       }
@@ -56,5 +57,15 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
     assert_template 'contributions/new'
     assert_select 'div#error_explanation'
     assert_select 'div.field_with_errors'
+  end
+
+  test "all contributions" do
+    get contributions_path
+    assert_template 'contributions/index'
+  end
+
+  test "contributions of category traffic are empty" do
+    get contributions_path(:category => @cat_traffic)
+    assert_template 'contributions/index'
   end
 end

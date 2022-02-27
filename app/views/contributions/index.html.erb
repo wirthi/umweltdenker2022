@@ -10,8 +10,10 @@
   <ul class="users">
     <%= render @contributions %>
   </ul>
+<% elsif @category %>
+  <p>Es sind noch keine Beiträge in der Kategorie <%= @category.title %> angelegt.</p>
 <% else %>
-  <p>Noch keine Beiträge in der Kategorie <%= @category.title %>.</p>
+  <p>Es sind noch keine Beiträge angelegt.</p>
 <% end %>
 
 <%= will_paginate %>

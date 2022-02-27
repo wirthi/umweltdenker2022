@@ -11,3 +11,9 @@ wasser:
   unit: Liter
   unit_short: l
   title_en: water
+
+traffic:
+  title: Traffic
+  unit: Kilograms of CO2
+  unit_short: kg CO2
+  title_en: traffic
