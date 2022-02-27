@@ -15,4 +15,8 @@
   <% else %>
     <%= link_to "Ich habe #{challenge.title} abgeschlossen!", new_contribution_path(:challenge=> challenge) %>
   <% end %>
+
+  <% if logged_in_admin? %>
+    <%= link_to "BEARBEITEN", edit_challenge_path(:id => challenge.id) %>
+  <% end %>
 </div>

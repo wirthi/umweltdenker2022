@@ -36,5 +36,6 @@ Rails.application.routes.draw do
   get '/new_contribution', to: 'contributions#new'  # why do I have to manually create that?
 
   # challenges
-  resources :challenges, only: [:index, :show]
+  resources :challenges, only: [:index, :show, :edit, :update]
+
 end

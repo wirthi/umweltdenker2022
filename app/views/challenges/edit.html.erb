@@ -1,0 +1,23 @@
+<% provide(:title, "Challenge bearbeiten") %>
+<h1>Bearbeite die Challenge</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @challenge, local: true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :title, "Titel" %>
+      <%= f.text_field :title, class: 'form-control' %>
+      
+      <%= f.label :description, "Beschreibung" %>
+      <%= f.text_area :description, :rows => 10, class: 'form-control' %>
+      
+      <%= f.label :submission, "Aufgabe" %>
+      <%= f.text_area :submission, :rows => 10, class: 'form-control' %>
+      
+      <%= f.label :category, "Kategorie" %>
+      <%= f.collection_select :category_id, Category.order(:title),:id,:title, prompt: "-- Wähle eine Kategorie --", include_blank: false %>
+        
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

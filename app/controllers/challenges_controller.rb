@@ -1,6 +1,7 @@
 require 'set'
 
 class ChallengesController < ApplicationController
+  before_action :admin_user,     only: [:edit, :update]
 
   def index
     @challenges = Challenge.paginate(page: params[:page])
@@ -18,7 +19,25 @@ class ChallengesController < ApplicationController
     end
   end
 
+  def edit
+    @challenge = Challenge.find(params[:id])
+  end
+
+  def update
+    @challenge = Challenge.find(params[:id])
+    if @challenge.update(challenge_params)
+      flash[:success] = "Challenge aktualisiert"
+      redirect_to @challenge
+    else
+      render 'edit'
+    end
+  end
+
   private
+    def challenge_params
+      params.require(:challenge).permit(:title, :description, :submission, :category_id)
+    end
+
     def my_completed_challenges
       @completed_challenges = Set.new
 
@@ -28,5 +47,10 @@ class ChallengesController < ApplicationController
           @completed_challenges.add(c.challenge)
         end
       end
+    end
+
+    # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end
