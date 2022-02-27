@@ -11,7 +11,7 @@
   <span class="timestamp">
     (<%= contribution.user.group.name %>)
     <% if logged_in_admin? %>
-      <%= link_to "delete", contribution, method: :delete, data: { confirm: "Wirklich löschen?" } %>
+      <%= link_to "LÖSCHEN", contribution, method: :delete, data: { confirm: "Wirklich löschen?" } %>
       <%= link_to "BEARBEITEN", edit_contribution_path(:id => contribution.id) %>
     <% end %>
   </span>

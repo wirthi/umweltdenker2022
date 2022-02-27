@@ -34,7 +34,7 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_match content, response.body
     # Delete post.
-    assert_select 'a', text: 'delete'
+    assert_select 'a', text: 'LÖSCHEN'
     first_contribution = @user.contributions.paginate(page: 1).first
     assert_difference 'Contribution.count', -1 do
       delete contribution_path(first_contribution)
