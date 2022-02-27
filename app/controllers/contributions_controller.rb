@@ -1,6 +1,7 @@
 class ContributionsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy, :new]
+  before_action :logged_in_user, only: [:create, :destroy, :new, :edit, :update]
   before_action :correct_user, only: :destroy
+  before_action :admin_user, only: [:edit, :update]
 
   def new
     @contribution = Contribution.new
@@ -43,6 +44,20 @@ class ContributionsController < ApplicationController
     @contribution = Contribution.find_by(id: params[:id])
   end
 
+  def edit
+    @contribution = Contribution.find(params[:id])
+  end
+
+  def update
+    @contribution = Contribution.find(params[:id])
+    if @contribution.update(contribution_params)
+      flash[:success] = "Beitrag aktualisiert"
+      redirect_to @contribution
+    else
+      render 'edit'
+    end
+  end
+
   private
 
     def contribution_params
@@ -52,5 +67,10 @@ class ContributionsController < ApplicationController
     def correct_user
       @contribution = current_user.contributions.find_by(id: params[:id])
       redirect_to root_url if @contribution.nil?
+    end
+
+    # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

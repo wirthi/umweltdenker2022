@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   
   # Umweltdenker Application
-  resources :contributions, only: [:new, :create, :destroy, :index, :show]
+  resources :contributions, only: [:new, :create, :destroy, :index, :show, :edit, :update]
   resources :groups, only: [:index]
   resources :categories, only: [:index]
   get '/new_contribution', to: 'contributions#new'  # why do I have to manually create that?

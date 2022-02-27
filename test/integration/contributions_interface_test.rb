@@ -39,7 +39,10 @@ class ContributionsInterfaceTest < ActionDispatch::IntegrationTest
     assert_difference 'Contribution.count', -1 do
       delete contribution_path(first_contribution)
     end
-    # Visit different user (no delete links).
+  end
+
+  test "non-admin should not see delete links" do
+    log_in_as(users(:archer))
     get user_path(users(:archer))
     assert_select 'a', { text: 'delete', count: 0 }
   end
