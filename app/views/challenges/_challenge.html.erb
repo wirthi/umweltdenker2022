@@ -6,6 +6,13 @@
   <strong>Kategorie</strong>: <%= challenge.category.try(:title) %><br />
   <strong>Beschreibung</strong>: <%= challenge.description.html_safe %><br /><br />
   <strong>Aufgabe</strong>: <%= challenge.submission %><br />
+  <br />
 
-  <%= link_to "Ich habe #{challenge.title} abgeschlossen!", new_contribution_path(:challenge=> challenge) %>
+  <% if @completed_challenges && @completed_challenges.include?(challenge) %>
+    <i>Du hast diese Challenge bereits abgeschlossen!</i>
+    (<%= link_to "Nochmal eintragen", new_contribution_path(:challenge=> challenge) %>)
+    <br />
+  <% else %>
+    <%= link_to "Ich habe #{challenge.title} abgeschlossen!", new_contribution_path(:challenge=> challenge) %>
+  <% end %>
 </div>

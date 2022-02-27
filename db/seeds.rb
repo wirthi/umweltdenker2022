@@ -46,7 +46,7 @@ Group.create!(name: "Vorchdorf", lat: "1234", lon: "4567")
 Group.create!(name: "Wels", lat: "1234", lon: "4567")
 
 # Create a main sample user.
-User.create!(firstname: "Christian ADMIN",
+user_admin = User.create!(firstname: "Christian ADMIN",
         name: "Wirth",
         email: "wirthi@gmx.at",
         password: "clancy26",
@@ -56,7 +56,7 @@ User.create!(firstname: "Christian ADMIN",
         activated_at: Time.zone.now,
         group_id: group_lvooe.id)
 
-User.create!(firstname: "Christian Wirth",
+user_wirthi = User.create!(firstname: "Christian Wirth",
         name: "Wirth",
         email: "cw@cwirth.at",
         password: "clancy26",
@@ -102,23 +102,8 @@ wasser = Category.create!(title: "Wasser",
   unit_short: "l",
   title_en: "water")
 
-# Generate Contributions for a subset of users in DEVELOPMENT
-if Rails.env.development?
-  users = User.order(:created_at).take(6)
-  15.times do
-    content = Faker::Lorem.sentence(word_count: 5)
-    title = Faker::Lorem.sentence(word_count: 2)
-    users.each { |user| user.contributions.create!(
-      title: title,
-      content: content,
-      category: abfall,
-      amount: 42,
-      completion: "31.12.2022") }
-  end
-end
-
 # == Challenges Abfall ==
-Challenge.create(title: "Eins-reicht-Challenge",
+challenge_einsreicht = Challenge.create(title: "Eins-reicht-Challenge",
   description: "Hygiene ist wichtig. Zum Abtrocknen der Hände mit Papierhandtüchern reicht aber häufig ein einziges Blatt. Probier es aus. Wie viele Kilogramm Papier kannst du dadurch einsparen?<br/><br/>Hygienepapier wird nicht recyclet.<br/><br/><strong>Hinweis zur Berechnung</strong>: Pro Blatt Papier sind es etwa 2,14g also 0,00214kg. ",
   submission: "Stelle in einer Woche fest wie viele Blatt Papierhandtücher du benötigst. In der nächsten Woche versuche mit weniger Blättern auszukommen. Wie viele Blätter hast du im Vergleich zur Vorwoche gespart. Rechen die Anzahl an gesparten Blättern in Kilogramm um. Ja, das wirkt auf den ersten Blick vielleicht nicht so viel, aber wenn das viele machen, kommt doch eine ganz schöne Menge heraus.",
   category: abfall)
@@ -193,3 +178,29 @@ Challenge.create(title: "Sommerlager-Challenge",
   submission: "Überlegt, wie  viele PKWs und sonstige Fahrzeuge üblicherweise für die Anreise zum Sommerlager benötigt werden, berechnet die Kilometer mit einer Straßenkarte und berechnet, wie viele kg CO2 ihr für dieses Sommerlager eingespart habt.",
   category: verkehr)
 
+# Generate Contributions for a subset of users in DEVELOPMENT
+if Rails.env.development?
+  users = User.order(:created_at).take(6)
+  15.times do
+    content = Faker::Lorem.sentence(word_count: 5)
+    title = Faker::Lorem.sentence(word_count: 2)
+    users.each { |user| user.contributions.create!(
+      title: title,
+      content: content,
+      category: abfall,
+      amount: 42,
+      participants: 1,
+      completion: "31.12.2022")
+    }
+  end
+
+  user_admin.contributions.create!(
+    title: Faker::Lorem.sentence(word_count: 2),
+    content: Faker::Lorem.sentence(word_count: 5),
+    category: abfall,
+    challenge: challenge_einsreicht,
+    amount: 60,
+    participants: 1,
+    completion: "31.12.2022"
+  )
+end
