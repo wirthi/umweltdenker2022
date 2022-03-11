@@ -15,9 +15,10 @@
     </div>
   </div>
 <% else %>
-  <div class="center jumbotron">
-    <h1>Wilkommen beim Portal der Umweltdenker 2022</h1>
-    <%= image_tag("logo_uwd.jpg", alt: "Logo Umweltdenker", width: "300") %>
+  <div style="background:transparent" class="center jumbotron">
+    <h1>KLIMA - Kleine Leistung Ist Meine Angelegenheit</h1>
+    <h2>Umweltdenker 2022</h2>
+    <%= image_tag("logo_uwd22_klima.jpg", alt: "Logo Umweltdenker 2022 KLIMA", width: "400") %>
     <h2>
       Die <strong>Umweltdenker</strong> sind ein Projekt der 
       <a href="http://ooe.pfadfinder.at/">Ober&ouml;sterreichischen Pfadfinderinnen und Pfadfinder</a>.
@@ -29,7 +30,7 @@
   <h1>Neue Beitrag eintragen</h1>
   <div class="row">
     <% @categories.each do |category| %>
-      <div class="col-md-4" align="center">
+      <div class="col-md-4 justify-content-center text-center">
         <%= link_to image_tag("category_#{category.title_en}.png", alt: "Logo Kategorie: #{category.title}", width: "100"), new_contribution_path(:category=> category) %>
         <br/>
         <%= link_to category.title, new_contribution_path(:category=> category) %>
@@ -40,11 +41,14 @@
 
   <br />
 
-  <div class="row">
-    <div class="col-md-6">
-      <%= link_to image_tag("ppoe_logo.jpg", alt: "Logo O&Ouml; PfadfinderInnen", width: "200"), "http://ooe.pfadfinder.at/" %>
+  <div class="row ">
+    <div class="col-md-6 justify-content-center text-center">
+      <%= image_tag("logo_uwd.jpg", alt: "Logo Umweltdenker", width: "200") %>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 justify-content-center text-center">
+      <span class="align-middle">
+        <%= link_to image_tag("ppoe_logo.jpg", alt: "Logo O&Ouml; PfadfinderInnen", width: "200"), "http://ooe.pfadfinder.at/" %>
+      </span>
     </div>
   </div>
 <% end %>
