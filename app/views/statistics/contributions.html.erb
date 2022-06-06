@@ -1,0 +1,15 @@
+<% provide(:title, 'Statistik - Beiträge') %>
+<h1>Beiträge</h1>
+
+<ul class="users">
+  <% @statistics.each do |category, catentry| %>
+    <li><strong><%= category.title %></strong>
+    <ul class="users">
+      <% catentry.sort_by {|_,value| value}.each do |group, groupcatentry| %>
+
+        <li><%= group.name %>: <%= groupcatentry %> <%= category.unit_short %></li>
+
+      <% end %>
+    </ul>
+  <% end %>
+</ul>

@@ -16,6 +16,7 @@
         <li><%= link_to "Hilfe", help_path %></li>
         <%= render 'shared/contributions_menu' %>
         <%= render 'shared/challenges_menu' %>
+        <%= render 'shared/statistics_menu' %>
         <%= render 'shared/admin_menu' if logged_in_admin? %>
         <% if logged_in? %>
           <li class="dropdown">

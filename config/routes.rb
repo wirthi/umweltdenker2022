@@ -38,4 +38,7 @@ Rails.application.routes.draw do
   # challenges
   resources :challenges, only: [:index, :show, :edit, :update]
 
+  # statistics
+  #get 'statistics/contributions'
+  get 'statistics_contributions', to: 'statistics#contributions'
 end
