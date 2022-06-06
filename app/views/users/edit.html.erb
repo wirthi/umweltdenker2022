@@ -14,6 +14,11 @@
       <%= f.password_field :password, class: 'form-control' %>
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <% if logged_in_admin? %>
+        <%= f.collection_select :group_id, Group.order(:name),:id,:name, prompt: "-- Wähle deine Pfadfindergruppe --", include_blank: false %>
+      <% end %>
+
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
     <div class="gravatar_edit">

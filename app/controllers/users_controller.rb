@@ -71,10 +71,10 @@ class UsersController < ApplicationController
 
     # Before filters
 
-    #Confirms the correct user.
+    #Confirms the correct user (or admin)
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to(root_url) unless current_user?(@user) || current_user.admin?
     end
 
     # Confirms an admin user.
