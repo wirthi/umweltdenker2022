@@ -301,3 +301,13 @@ span.image {
 .bg-challenge-5 {
   background-color: #c2cefa
 }
+
+.statisticsTable {
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 5px;
+  }
+}

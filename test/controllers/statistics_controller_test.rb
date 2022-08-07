@@ -5,4 +5,9 @@ class StatisticsControllerTest < ActionDispatch::IntegrationTest
     get statistics_contributions_url
     assert_response :success
   end
+
+  test "should get overview" do
+    get statistics_overview_url
+    assert_response :success
+  end
 end

@@ -41,4 +41,5 @@ Rails.application.routes.draw do
   # statistics
   #get 'statistics/contributions'
   get 'statistics_contributions', to: 'statistics#contributions'
+  get 'statistics_overview', to: 'statistics#overview'
 end
