@@ -1,0 +1,25 @@
+<% provide(:title, 'Statistik - Überblick') %>
+<h1>Überblick pro Gruppe</h1>
+
+<table class="statisticsTable">
+  <tr>
+    <td style="background: #cccccc"><strong>Gruppe</strong></td>
+    <% @categories.each do |category| %>
+      <td style="background: #cccccc"><strong><%= category.title %></strong> [<%= category.unit_short %>]</td>
+    <% end %>
+  </tr>
+
+  <% @groups.each do |group| %>
+    <tr>
+      <td style="background: <%= @groupFinished[group] %> "><%= group.name %>
+
+        <% @categories.each do |category| %>
+          <td style="background: <%= @groupCatFinished[category][group] %>; text-align: right">
+            <%= @statistics[category][group] %>
+          </td>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
