@@ -126,7 +126,7 @@ Challenge.create(title: "Ausschalten-und-Ausstrecken-Challenge",
 
 Challenge.create(title: "Earth-Hour-Challenge",
   description: "Nimm an der Earth Hour teil. Bei dieser Aktion schalten Menschen auf der ganzen Welt für eine Stunde alle Lichter und elektrischen Geräte aus. Dies soll ein starkes Zeichen sein, dass ihnen Umweltschutz ein Anliegen ist.<br/><br/>Die nächste Earth Hour findet am 25. März von 20:30 bis 21:30 Uhr statt.<br/><br/><a href=\"https://www.earthhour.org\">earthhour.org</a><br/><br/><strong>Hinweis zur Berechnung</strong>: ",
-  submission: "Stelle fest, welche Geräte und Lampen bei dir zu Hause üblicherweise am Abend eingeschalten sind. Nimm an der Earth Hour teil und schalte für eine Stunde all diese Geräte ab. Nimm die Umrechnungstabelle zur Hand und berechne, wie viel du eingespart hast. ",
+  submission: "Stelle fest, welche Geräte und Lampen bei dir zu Hause üblicherweise am Abend eingeschalten sind. Nimm an der Earth Hour teil und schalte für eine Stunde all diese Geräte ab. Nimm die Umrechnungstabelle zur Hand und berechne, wie viele Kilowattstunden (kWh) du eingespart hast. ",
   category: energie)
 
 Challenge.create(title: "Handy-Akku-Challenge",
