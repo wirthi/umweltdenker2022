@@ -82,7 +82,7 @@ user_wirthi = User.create!(firstname: "Christian Wirth",
 #end
 
 abfall = Category.create!(title: "Abfall",
-  unit: "Kilogramm",
+  unit: "Kilogramm Abfall",
   unit_short: "kg",
   title_en: "waste")
 energie = Category.create!(title: "Energie",
@@ -91,15 +91,15 @@ energie = Category.create!(title: "Energie",
   title_en: "energy")
 ernaehrung = Category.create!(title: "Ernährung",
   unit: "Kilogramm Kohlendioxid",
-  unit_short: "kg CO2",
+  unit_short: "kg",
   title_en: "food")
 verkehr = Category.create!(title: "Verkehr",
-  unit: "Kilometer",
-  unit_short: "km",
+  unit: "Kilogramm Kohlendioxid",
+  unit_short: "kg",
   title_en: "traffic")
 wasser = Category.create!(title: "Wasser",
-  unit: "Liter",
-  unit_short: "l",
+  unit: "Kilogramm Kohlendioxid",
+  unit_short: "kg",
   title_en: "water")
 
 # == Challenges Abfall ==
@@ -169,7 +169,7 @@ Challenge.create(title: "Vegan/Vegetarisch-Challenge",
 # == Challenges Verkehr ==
 
 Challenge.create(title: "Kein-Auto-Challenge",
-  description: "Der Autoverkehr ist einer der größten CO<sub>2</sub>-Verursacher. Versuche für diese Challenge, für einige Zeit ohne Auto auszukommen, sowohl als Selbstfahrer*in oder als Mitfahrer*in bei den Eltern. Geh zu Fuß oder nimm das Fahrrad auf dem Weg zur Schule, zum Sport oder in die Heimstunde. Auch (Eltern-)Fahrgemeinschaften tragen dazu bei, CO<sub>2</sub> einzusparen. <br/><br/><strong>Hinweis zur Berechnung</strong>: ca. 125g C02-Ausstoß pro gefahrener Autokilometer.",
+  description: "Der Autoverkehr ist einer der größten CO<sub>2</sub>-Verursacher. Versuche für diese Challenge, für einige Zeit ohne Auto auszukommen, sowohl als Selbstfahrer*in oder als Mitfahrer*in bei den Eltern. Geh zu Fuß oder nimm das Fahrrad auf dem Weg zur Schule, zum Sport oder in die Heimstunde. Auch (Eltern-)Fahrgemeinschaften tragen dazu bei, CO<sub>2</sub> einzusparen. <br/><br/><strong>Hinweis zur Berechnung</strong>: ca. 125g C0<sub>2</sub>-Ausstoß pro gefahrener Autokilometer.",
   submission: "Überlege dir, welche Wege du in einer gewöhnlichen Schuld- oder Arbeitswoche anstelle des Autos mit dem Rad, zu Fuß oder mit den Öffis zurücklegen kannst. Auch eine Fahrgemeinschaft spart Kilometer ein. Mit Google Maps oder ähnlichen Programmen lassen sich dann ganz leicht die Kilometer herausfinden, die du einsparen kannst. Gib an, wie viele Kilogramm CO<sub>2</sub> du pro Woche eingespart hast.",
   category: verkehr)
 

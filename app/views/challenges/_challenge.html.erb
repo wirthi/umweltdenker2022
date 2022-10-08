@@ -5,7 +5,7 @@
 
   <strong>Kategorie</strong>: <%= challenge.category.try(:title) %><br />
   <strong>Beschreibung</strong>: <%= challenge.description.html_safe %><br /><br />
-  <strong>Aufgabe</strong>: <%= challenge.submission %><br />
+  <strong>Aufgabe</strong>: <%= challenge.submission.html_safe %><br />
   <br />
 
   <% if @completed_challenges && @completed_challenges.include?(challenge) %>
