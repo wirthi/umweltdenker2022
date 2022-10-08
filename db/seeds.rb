@@ -11,7 +11,7 @@ Group.create!(name: "4222", lat: "1234", lon: "4567")
 Group.create!(name: "Bad Ischl", lat: "1234", lon: "4567")
 Group.create!(name: "Bad Goisern", lat: "1234", lon: "4567")
 Group.create!(name: "Braunau am Inn", lat: "1234", lon: "4567")
-Group.create!(name: "Brunnenthal", lat: "1234", lon: "4567")
+#Group.create!(name: "Brunnenthal", lat: "1234", lon: "4567")
 Group.create!(name: "Enns", lat: "1234", lon: "4567")
 Group.create!(name: "Freistadt", lat: "1234", lon: "4567")
 Group.create!(name: "Gallneukirchen-Engerwitzdorf", lat: "1234", lon: "4567")
@@ -58,13 +58,13 @@ user_admin = User.create!(firstname: "Christian ADMIN",
 
 user_wirthi = User.create!(firstname: "Christian Wirth",
         name: "Wirth",
-        email: "cw@cwirth.at",
+        email: "christian.wirth@ooe.pfadfinder.at",
         password: "clancy26",
         password_confirmation: "clancy26",
         admin: false,
         activated: true,
         activated_at: Time.zone.now,
-        group_id: group_lhf.id)
+        group_id: group_lvooe.id)
 
 #15.times do |n|
 #  firstname = Faker::Name.first_name
