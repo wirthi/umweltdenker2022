@@ -4,8 +4,10 @@ challenge1:
   title: MyString
   description: MyText
   category: energie
+  submission: Testsubmission
 
 challenge2:
   title: MyString
   description: MyText
   category: wasser
+  submission: AnotherTestsubmission
